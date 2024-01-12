@@ -1,0 +1,33 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/fonts/bont.otf",
+      "sha1": "d85972f0c98a49fa10945f2ffe4894098acd6b0a"
+    },
+    {
+      "path": "src/assets/fonts/Bubbledot Medium.ttf",
+      "sha1": "4cce4ac8c5cf75e3950b367bcde3310ade2bb755"
+    },
+    {
+      "path": "src/assets/fonts/Mina-Bold.ttf",
+      "sha1": "8ce89bf5ff9f18a7330529ad738cd19ca6cdded3"
+    },
+    {
+      "path": "src/assets/fonts/Mina-Regular.ttf",
+      "sha1": "3b769b4754ea41c06e5dbcf3e495a5a1924b6623"
+    },
+    {
+      "path": "src/assets/fonts/Preahvihear-Regular.ttf",
+      "sha1": "1dfbe3b2e49635e3124c02243f810ccc1641cc7f"
+    },
+    {
+      "path": "src/assets/fonts/Raleway-Italic-VariableFont_wght.ttf",
+      "sha1": "3457d286484db77b96f585866f758dfa13690b05"
+    },
+    {
+      "path": "src/assets/fonts/Raleway-VariableFont_wght.ttf",
+      "sha1": "51419d139ba96d998486bc58ba70a69fb9fd7947"
+    }
+  ]
+}
