@@ -26,8 +26,7 @@ const MainPage = () => {
 
   useEffect(() => {
     sendWorkList()
-    sendControlArray()
-  }, [priceCount, workCount, workedDayList,controlArray])
+  })
 
   useEffect(() => {
     if (selectedDate == undefined) { }
@@ -35,41 +34,23 @@ const MainPage = () => {
   }, [controlState, selectedDate, selectedMonth, selectedDay])
 
   useEffect(() => {
-    getWorkList()
-    getWorkedList()
+    getPrice()
+    getCount()
     getControlList()
+    getWorkedList()
   }, [])
 
   const sendWorkList = async () => {
-    await AsyncStorage.setItem('price', priceCount.toString())
+    await AsyncStorage.setItem("price", priceCount.toString())
     await AsyncStorage.setItem('count', workCount.toString())
-    await AsyncStorage.setItem("worklist", JSON.stringify(workedDayList))
     await AsyncStorage.setItem('control', JSON.stringify(controlArray))
+    await AsyncStorage.setItem("worklist", JSON.stringify(workedDayList))
   }
 
-  const sendControlArray = async () => {
-    
-  }
-
-  const getWorkList = async () => {
-    dispatch(getPriceCount(parseInt(await AsyncStorage.getItem('price'))))
-    dispatch(getWorkCount(parseFloat(await AsyncStorage.getItem('count'))))
-    dispatch(getControlArray(JSON.parse(await AsyncStorage.getItem('control'))))
-
-
-  }
-  const getControlList = async () => {
-    const getDayList = await AsyncStorage.getItem("control")
-    const jsonGetDayList = JSON.parse(getDayList)
-    dispatch(getControlArray(jsonGetDayList))
-  }
-
-  const getWorkedList = async () => {
-    //await AsyncStorage.removeItem("workListtt");
-    const getList = await AsyncStorage.getItem("worklist")
-    const jsongetList = JSON.parse(getList)
-    dispatch(getWorkedDayList(jsongetList))
-  }
+  const getPrice = async () => { dispatch(getPriceCount(parseInt(await AsyncStorage.getItem("price")))) }
+  const getCount = async () => { dispatch(getWorkCount(parseFloat(await AsyncStorage.getItem('count')))) }
+  const getControlList = async () => { dispatch(getControlArray(JSON.parse(await AsyncStorage.getItem("control")))) }
+  const getWorkedList = async () => { dispatch(getWorkedDayList(JSON.parse(await AsyncStorage.getItem("worklist")))) }
 
   return (
     <SafeAreaView style={Style.container}>
@@ -124,7 +105,7 @@ const MainPage = () => {
         setControlState(true)
       }} />
 
-      <View style={{ flex: 6 }}>
+      <View style={Style.flatListStyle}>
         <FlatList
           data={workedDayList}
           renderItem={({ item }) => {

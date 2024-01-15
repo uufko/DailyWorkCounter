@@ -6,7 +6,7 @@ export const Style = StyleSheet.create({
         backgroundColor:"#365486",
         justifyContent:"center",
         alignItems:"center",
-        width:UserDevice.deviceWidht
+        width:UserDevice.deviceWidht, flex:1
     },
     textStyle:{
         fontSize:50,

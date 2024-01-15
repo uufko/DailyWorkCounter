@@ -7,7 +7,7 @@ export const Style = StyleSheet.create({
         justifyContent:"space-around",
         height:UserDevice.deviceHeight*.05,
         width:UserDevice.deviceWidht*.7,
-        marginVertical:2,
+        marginVertical:2,flex:1
         
     },
     countViewStyle:{

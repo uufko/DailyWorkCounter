@@ -14,7 +14,7 @@ export const Style = StyleSheet.create({
         shadowColor: "black",
         shadowOpacity: .5,
         elevation: 10,
-        shadowOffset: { height: 7, width: 3 },
+        shadowOffset: { height: 7, width: 3 }
     },
     textStyle:{
         fontSize:20,

@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    workCount: 0,
-    priceCount: 0,
+    workCount: null,
+    priceCount: null,
     workedDayList: [],
     controlArray: []
 }
@@ -37,11 +37,9 @@ export const workSlice = createSlice({
         },
         getWorkedDayList: (state, action) => {
             state.workedDayList = action.payload
-            console.log(state.workedDayList);
         },
         getControlArray: (state, action) => {
             state.controlArray = action.payload
-            console.log(state.controlArray);
         }
     }
 })

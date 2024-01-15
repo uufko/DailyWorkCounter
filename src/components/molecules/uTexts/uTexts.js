@@ -4,7 +4,7 @@ import UText from '../../atoms/uText/uText'
 
 const UTexts = ({priceText,countText}) => {
   return (
-    <View>
+    <View style={{flex:1, justifyContent:"center", alignItems:"center" , backgroundColor:"yellow"}}>
       <UText priceText={`${priceText} TL`}/>
       <UText priceText={`${countText} Gün`}/>
     </View>
