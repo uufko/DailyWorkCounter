@@ -11,6 +11,10 @@ import DatePickerWithText from '../../molecules/datePickerWithText/datePickerWit
 import { useSelector, useDispatch } from 'react-redux'
 import { getControlArray, getPriceCount, getWorkCount, getWorkedDayList, remove, setControlArray, setDayCount, setPriceCount, setWorkedDayList } from '../../../redux/countSlice'
 import { Style } from './style'
+import AlertWindow from '../../organisms/alertWindow/alertWindow'
+import { UserDevice } from '../../metarials/userDevice'
+import { Images } from '../../metarials/images'
+import PriceState from '../../organisms/priceState/priceState'
 
 const MainPage = () => {
   const [date, setDate] = useState(new Date())
@@ -20,6 +24,8 @@ const MainPage = () => {
   const [selectedMonth, setSelectedMonth] = useState()
   const [allDay, setAllDay] = useState("")
   const [controlState, setControlState] = useState(false)
+  const [deleteWindow, setDeleteWindow] = useState(false)
+  const [priceWindow, setPriceWindow] = useState(false)
 
   const { workCount, priceCount, workedDayList, controlArray } = useSelector((state) => state.user)
   const dispatch = useDispatch()
@@ -27,6 +33,7 @@ const MainPage = () => {
   useEffect(() => {
     sendWorkList()
   })
+
 
   useEffect(() => {
     if (selectedDate == undefined) { }
@@ -65,7 +72,7 @@ const MainPage = () => {
         <UButtons
           onPressFirstButton={() => {
             if (selectedDate == null) {
-              setAllDay("Tarih Giriniz !")
+              setAllDay("Tarih Seçiniz !")
             }
             else if (controlArray.find(s => s == `${selectedDate}${selectedMonth}`) == `${selectedDate}${selectedMonth}`) {
               setAllDay("Bu Tarih Eklenmiş !")
@@ -80,7 +87,7 @@ const MainPage = () => {
           }}
           onPressSecondButton={() => {
             if (selectedDate == null) {
-              setAllDay("Tarih Giriniz !")
+              setAllDay("Tarih Seçiniz !")
             }
             else if (controlArray.find(s => s == `${selectedDate}${selectedMonth}`) == `${selectedDate}${selectedMonth}`) {
               setAllDay("Bu Tarih Eklenmiş !")
@@ -117,9 +124,29 @@ const MainPage = () => {
           }} />
 
       </View>
-      <UImage onPress={() => {
-        dispatch(remove())
-      }} />
+      <UImage source={Images.setIcon} right={5} top={15} height={UserDevice.deviceHeight * .04} width={UserDevice.deviceHeight * .06}
+        onPress={() => { setPriceWindow(true) }} />
+      <UImage source={Images.deleteIcon} right={5} bottom={15} height={UserDevice.deviceHeight * .1} width={UserDevice.deviceHeight * .14}
+        onPress={() => { setDeleteWindow(true) }} />
+      {priceWindow && <View style={{
+        justifyContent: "center", alignItems: "center", position: "absolute",
+        height: UserDevice.deviceHeight, width: UserDevice.deviceWidht, backgroundColor: "white"
+      }}>
+        <PriceState onPress={setPriceWindow(false)} />
+      </View>}
+
+      {deleteWindow && <View style={{
+        position: "absolute", justifyContent: "center", alignItems: "center",
+        height: UserDevice.deviceHeight, width: UserDevice.deviceWidht,
+        backgroundColor: "white"
+      }}>
+        <AlertWindow
+          noButton={() => setDeleteWindow(false)}
+          yesButton={() => {
+            dispatch(remove())
+            setDeleteWindow(false)
+          }} />
+      </View>}
     </SafeAreaView>
   )
 }

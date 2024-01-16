@@ -22,7 +22,7 @@ export const Style = StyleSheet.create({
         shadowOffset: { height: 7, width: 3 }
     },
     textStyle:{
-        fontSize:20,
+        fontSize:UserDevice.deviceHeight*.028,
         fontFamily:"bont",
         color:"white",
     }

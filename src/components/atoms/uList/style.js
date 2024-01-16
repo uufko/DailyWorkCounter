@@ -24,12 +24,12 @@ export const Style = StyleSheet.create({
         alignItems:"center",
     },
     textStyle:{
-        fontSize:15,
+        fontSize:UserDevice.deviceHeight*.02,
         color:"#0F1035",
         fontFamily:"bont"
     },
     countTextStyle:{
-        fontSize:12,
+        fontSize:UserDevice.deviceHeight*.018,
         color:"#0F1035",
         fontFamily:"bont"
     }

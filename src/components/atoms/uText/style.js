@@ -9,7 +9,7 @@ export const Style = StyleSheet.create({
         width:UserDevice.deviceWidht, flex:1
     },
     textStyle:{
-        fontSize:50,
+        fontSize:UserDevice.deviceHeight*.05,
         fontFamily:"bont",
         color:"#F5F7F8",
     }
