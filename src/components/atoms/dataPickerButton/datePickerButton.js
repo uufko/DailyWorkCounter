@@ -6,7 +6,7 @@ const DatePickerButton = ({onPress}) => {
   return (
     <View style={Style.viewStyle}>
       <TouchableOpacity style={Style.touchableStyle} onPress={onPress}>
-    <Text style={Style.textStyle}>Tarih Seç2</Text>
+    <Text style={Style.textStyle}>Tarih Seç</Text>
       </TouchableOpacity>
     </View>
   )
