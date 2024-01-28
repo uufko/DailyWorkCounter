@@ -4,7 +4,8 @@ const initialState = {
     workCount: null,
     priceCount: null,
     workedDayList: [],
-    controlArray: []
+    controlArray: [],
+    priceState:0
 }
 
 export const workSlice = createSlice({
@@ -40,11 +41,14 @@ export const workSlice = createSlice({
         },
         getControlArray: (state, action) => {
             state.controlArray = action.payload
+        },
+        setPriceState:(state,action) =>{
+            state.priceState = parseInt(action.payload)
         }
     }
 })
 
 export const { setDayCount, setPriceCount, setWorkedDayList, remove, setControlArray,
-    getControlArray, getPriceCount, getWorkCount, getWorkedDayList
+    getControlArray, getPriceCount, getWorkCount, getWorkedDayList,setPriceState
 } = workSlice.actions
 export default workSlice.reducer; //

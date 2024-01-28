@@ -8,6 +8,11 @@ export const Style = StyleSheet.create({
         flex:1, 
     },
     imageStyle:{
-        resizeMode:"contain"
+        resizeMode:"contain",
+    },
+    textStyle:{
+        alignSelf:"center",
+        color:"white",
+        fontSize:UserDevice.deviceHeight*.015, fontFamily:"bont"
     }
 })

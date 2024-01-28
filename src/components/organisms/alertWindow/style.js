@@ -1,11 +1,12 @@
 import { StyleSheet } from "react-native";
 import { UserDevice } from "../../metarials/userDevice";
+import { Colors } from "../../metarials/colors";
 
 export const Style = StyleSheet.create({
     viewStyle:{
         height:UserDevice.deviceHeight*.2,
         width:UserDevice.deviceWidht*.8,
-        backgroundColor:"#365486", opacity:1, 
+        backgroundColor:Colors.buttonColor, opacity:1, 
         justifyContent:"center", alignItems:"center",gap:10,
         borderRadius:5
     },

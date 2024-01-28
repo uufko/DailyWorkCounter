@@ -8,7 +8,7 @@ export const Style = StyleSheet.create({
         flex:1
     },textStyle:{
         fontFamily:"bont",
-        color:"black",
+        color:"white",
     }
     
 })

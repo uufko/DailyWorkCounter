@@ -1,5 +1,6 @@
 import { StyleSheet } from "react-native";
 import { UserDevice } from "../../metarials/userDevice";
+import { Colors } from "../../metarials/colors";
 
 export const Style = StyleSheet.create({
     viewStyle:{
@@ -8,7 +9,7 @@ export const Style = StyleSheet.create({
         flex:1
     },
     touchableStyle:{
-        backgroundColor:"#7FC7D9",
+        backgroundColor:Colors.buttonColor,
         height:UserDevice.deviceHeight*.05,
         width:UserDevice.deviceWidht*.6,
         justifyContent:"center",

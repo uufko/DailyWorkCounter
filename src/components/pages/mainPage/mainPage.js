@@ -9,7 +9,7 @@ import UList from '../../atoms/uList/uList'
 import UImage from '../../atoms/uImage/uImage'
 import DatePickerWithText from '../../molecules/datePickerWithText/datePickerWithText'
 import { useSelector, useDispatch } from 'react-redux'
-import { getControlArray, getPriceCount, getWorkCount, getWorkedDayList, remove, setControlArray, setDayCount, setPriceCount, setWorkedDayList } from '../../../redux/countSlice'
+import { getControlArray, getPriceCount, getWorkCount, getWorkedDayList, remove, setControlArray, setDayCount, setPriceCount, setPriceState, setWorkedDayList } from '../../../redux/countSlice'
 import { Style } from './style'
 import AlertWindow from '../../organisms/alertWindow/alertWindow'
 import { UserDevice } from '../../metarials/userDevice'
@@ -27,7 +27,7 @@ const MainPage = () => {
   const [deleteWindow, setDeleteWindow] = useState(false)
   const [priceWindow, setPriceWindow] = useState(false)
 
-  const { workCount, priceCount, workedDayList, controlArray } = useSelector((state) => state.user)
+  const { workCount, priceCount, workedDayList, controlArray, priceState } = useSelector((state) => state.user)
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -45,6 +45,7 @@ const MainPage = () => {
     getCount()
     getControlList()
     getWorkedList()
+    getPriceState()
   }, [])
 
   const sendWorkList = async () => {
@@ -52,12 +53,14 @@ const MainPage = () => {
     await AsyncStorage.setItem('count', workCount.toString())
     await AsyncStorage.setItem('control', JSON.stringify(controlArray))
     await AsyncStorage.setItem("worklist", JSON.stringify(workedDayList))
+    await AsyncStorage.setItem("priceState", priceState.toString())
   }
 
   const getPrice = async () => { dispatch(getPriceCount(parseInt(await AsyncStorage.getItem("price")))) }
   const getCount = async () => { dispatch(getWorkCount(parseFloat(await AsyncStorage.getItem('count')))) }
   const getControlList = async () => { dispatch(getControlArray(JSON.parse(await AsyncStorage.getItem("control")))) }
   const getWorkedList = async () => { dispatch(getWorkedDayList(JSON.parse(await AsyncStorage.getItem("worklist")))) }
+  const getPriceState = async () => {dispatch(setPriceState(parseInt(await AsyncStorage.getItem("priceState"))))}
 
   return (
     <SafeAreaView style={Style.container}>
@@ -78,7 +81,7 @@ const MainPage = () => {
               setAllDay("Bu Tarih Eklenmiş !")
             } else {
               dispatch(setDayCount(1))
-              dispatch(setPriceCount(450))
+              dispatch(setPriceCount(priceState))
               dispatch(setWorkedDayList({ _day: selectedDay, _month: selectedMonth, _date: selectedDate, workCount: 1 }))
               dispatch(setControlArray(`${selectedDate}${selectedMonth}`))
               setAllDay()
@@ -93,7 +96,7 @@ const MainPage = () => {
               setAllDay("Bu Tarih Eklenmiş !")
             } else {
               dispatch(setDayCount(.5))
-              dispatch(setPriceCount(225))
+              dispatch(setPriceCount(priceState/2))
               dispatch(setWorkedDayList({ _day: selectedDay, _month: selectedMonth, _date: selectedDate, workCount: 0.5 }))
               dispatch(setControlArray(`${selectedDate}${selectedMonth}`))
               setAllDay()
@@ -124,22 +127,25 @@ const MainPage = () => {
           }} />
 
       </View>
-      <UImage source={Images.setIcon} right={5} top={15} height={UserDevice.deviceHeight * .04} width={UserDevice.deviceHeight * .06}
+      <UImage source={Images.moneyIcon} right={15} top={15} height={UserDevice.deviceHeight * .04} width={UserDevice.deviceHeight * .04}
+        text={priceState}
         onPress={() => { setPriceWindow(true) }} />
-      <UImage source={Images.deleteIcon} right={5} bottom={15} height={UserDevice.deviceHeight * .1} width={UserDevice.deviceHeight * .14}
+      <UImage source={Images.trashIcon} right={10} bottom={5} height={UserDevice.deviceHeight * .09} width={UserDevice.deviceHeight * .09}
         onPress={() => { setDeleteWindow(true) }} />
-      {priceWindow && <View style={{
-        justifyContent: "center", alignItems: "center", position: "absolute",
-        height: UserDevice.deviceHeight, width: UserDevice.deviceWidht, backgroundColor: "white"
-      }}>
-        <PriceState onPress={setPriceWindow(false)} />
-      </View>}
 
-      {deleteWindow && <View style={{
-        position: "absolute", justifyContent: "center", alignItems: "center",
-        height: UserDevice.deviceHeight, width: UserDevice.deviceWidht,
-        backgroundColor: "white"
-      }}>
+        {priceWindow && <View style={Style.absoluteViewStyle}>
+          <PriceState 
+          value={priceState}
+          onChange={(e)=>{
+            dispatch(setPriceState(e))
+          }}
+          onPress={()=>{
+            setPriceWindow(false)
+            }}/>
+          </View>}
+
+
+      {deleteWindow && <View style={Style.absoluteViewStyle}>
         <AlertWindow
           noButton={() => setDeleteWindow(false)}
           yesButton={() => {
