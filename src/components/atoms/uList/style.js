@@ -8,15 +8,17 @@ export const Style = StyleSheet.create({
         justifyContent:"space-around",
         height:UserDevice.deviceHeight*.05,
         width:UserDevice.deviceWidht*.7,
-        marginVertical:2,flex:1, backgroundColor:Colors.buttonColor
+        marginVertical:2,
+        flex:1, 
+        backgroundColor:Colors.buttonColor, 
+        alignItems:"center"
         
     },
     countViewStyle:{
         flex:1,
         backgroundColor:Colors.buttonColor,
         justifyContent:"center",
-        alignItems:"center",
-        borderRightWidth:1,borderColor:"white", borderRadius:5
+        alignItems:"center"
     },
     datesViewStyle:{
         flex:7,
@@ -27,12 +29,17 @@ export const Style = StyleSheet.create({
     },
     textStyle:{
         fontSize:UserDevice.deviceHeight*.02,
-        color:"white",
+        color:Colors.textColor,
         fontFamily:"bont"
     },
     countTextStyle:{
         fontSize:UserDevice.deviceHeight*.018,
-        color:"white",
+        color:Colors.textColor,
         fontFamily:"bont"
+    },
+    lineStyle:{
+        backgroundColor:"white", 
+        height:UserDevice.deviceHeight*.045, 
+        width:UserDevice.deviceWidht*.005
     }
 })

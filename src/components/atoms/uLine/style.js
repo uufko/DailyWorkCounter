@@ -4,12 +4,8 @@ import { Colors } from "../../metarials/colors";
 
 export const Style = StyleSheet.create({
     viewStyle:{
-        justifyContent:"center",    
-        alignItems:"center",
-        flex:1
-    },textStyle:{
-        fontFamily:"bont",
-        color:Colors.textColor,
+        backgroundColor:Colors.textColor,
+        height:UserDevice.deviceHeight*.001,
+        width:UserDevice.deviceWidht*.8
     }
-    
 })

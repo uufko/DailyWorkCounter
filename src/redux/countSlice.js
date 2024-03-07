@@ -5,7 +5,11 @@ const initialState = {
     priceCount: null,
     workedDayList: [],
     controlArray: [],
-    priceState:0
+    priceState:0,
+    backColor:"",
+    compColor:"",
+    textColor:"",
+    themeState:false
 }
 
 export const workSlice = createSlice({
@@ -44,11 +48,17 @@ export const workSlice = createSlice({
         },
         setPriceState:(state,action) =>{
             state.priceState = parseInt(action.payload)
+        },
+        setListState:(state, action) =>{
+            state.workedDayList[action.payload].state=!state.workedDayList[action.payload].state
+        },
+        deleteListItem:(state, action) =>{
+            console.log(state.workedDayList);
         }
     }
 })
 
-export const { setDayCount, setPriceCount, setWorkedDayList, remove, setControlArray,
-    getControlArray, getPriceCount, getWorkCount, getWorkedDayList,setPriceState
+export const { setDayCount, setPriceCount, setWorkedDayList, remove, setControlArray,deleteListItem,
+    getControlArray, getPriceCount, getWorkCount, getWorkedDayList,setPriceState, setListState
 } = workSlice.actions
 export default workSlice.reducer; //

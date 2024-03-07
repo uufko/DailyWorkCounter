@@ -9,12 +9,13 @@ import UList from '../../atoms/uList/uList'
 import UImage from '../../atoms/uImage/uImage'
 import DatePickerWithText from '../../molecules/datePickerWithText/datePickerWithText'
 import { useSelector, useDispatch } from 'react-redux'
-import { getControlArray, getPriceCount, getWorkCount, getWorkedDayList, remove, setControlArray, setDayCount, setPriceCount, setPriceState, setWorkedDayList } from '../../../redux/countSlice'
+import { setListState,getControlArray, getPriceCount, getWorkCount, getWorkedDayList, remove, setControlArray, setDayCount, setPriceCount, setPriceState, setWorkedDayList, deleteListItem } from '../../../redux/countSlice'
 import { Style } from './style'
 import AlertWindow from '../../organisms/alertWindow/alertWindow'
 import { UserDevice } from '../../metarials/userDevice'
 import { Images } from '../../metarials/images'
 import PriceState from '../../organisms/priceState/priceState'
+import { Color2, Colors } from '../../metarials/colors'
 
 const MainPage = () => {
   const [date, setDate] = useState(new Date())
@@ -26,6 +27,7 @@ const MainPage = () => {
   const [controlState, setControlState] = useState(false)
   const [deleteWindow, setDeleteWindow] = useState(false)
   const [priceWindow, setPriceWindow] = useState(false)
+  const [isVisible, setIsVisible] = useState(false)
 
   const { workCount, priceCount, workedDayList, controlArray, priceState } = useSelector((state) => state.user)
   const dispatch = useDispatch()
@@ -82,7 +84,7 @@ const MainPage = () => {
             } else {
               dispatch(setDayCount(1))
               dispatch(setPriceCount(priceState))
-              dispatch(setWorkedDayList({ _day: selectedDay, _month: selectedMonth, _date: selectedDate, workCount: 1 }))
+              dispatch(setWorkedDayList({ _day: selectedDay, _month: selectedMonth, _date: selectedDate, workCount: 1,state:false }))
               dispatch(setControlArray(`${selectedDate}${selectedMonth}`))
               setAllDay()
             }
@@ -97,7 +99,7 @@ const MainPage = () => {
             } else {
               dispatch(setDayCount(.5))
               dispatch(setPriceCount(priceState/2))
-              dispatch(setWorkedDayList({ _day: selectedDay, _month: selectedMonth, _date: selectedDate, workCount: 0.5 }))
+              dispatch(setWorkedDayList({ _day: selectedDay, _month: selectedMonth, _date: selectedDate, workCount: 0.5, state:false }))
               dispatch(setControlArray(`${selectedDate}${selectedMonth}`))
               setAllDay()
             }
@@ -121,16 +123,22 @@ const MainPage = () => {
           renderItem={({ item }) => {
             return (
               <View style={{ justifyContent: "center", alignItems: "center" }}>
-                <UList dayName={item._day} dayNumber={item._date} monthName={item._month} dailyWorkCount={item.workCount} />
+                <UList 
+                visible={item.state}
+                
+                onPress={()=> {
+                  dispatch(setListState(workedDayList.indexOf(item)))
+
+                }} dayName={item._day} dayNumber={item._date} monthName={item._month} dailyWorkCount={item.workCount} />
               </View>
             )
           }} />
 
       </View>
-      <UImage source={Images.moneyIcon} right={15} top={15} height={UserDevice.deviceHeight * .04} width={UserDevice.deviceHeight * .04}
+      <UImage state={true} source={Images.moneyIcon} right={15} top={15} height={UserDevice.deviceHeight * .04} width={UserDevice.deviceHeight * .04}
         text={priceState}
         onPress={() => { setPriceWindow(true) }} />
-      <UImage source={Images.trashIcon} right={10} bottom={5} height={UserDevice.deviceHeight * .09} width={UserDevice.deviceHeight * .09}
+      <UImage state={false} source={Images.trashIcon} right={5} bottom={5} height={UserDevice.deviceHeight * .09} width={UserDevice.deviceHeight * .09}
         onPress={() => { setDeleteWindow(true) }} />
 
         {priceWindow && <View style={Style.absoluteViewStyle}>

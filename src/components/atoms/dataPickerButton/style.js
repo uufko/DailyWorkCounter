@@ -25,6 +25,6 @@ export const Style = StyleSheet.create({
     textStyle:{
         fontSize:UserDevice.deviceHeight*.028,
         fontFamily:"bont",
-        color:"white",
+        color:Colors.textColor,
     }
 })

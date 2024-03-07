@@ -8,11 +8,10 @@ export const Style = StyleSheet.create({
         justifyContent:"center",
         alignItems:"center",
         width:UserDevice.deviceWidht, flex:1,
-        borderBottomWidth:0.5, borderColor:"white", borderRadius:100
     },
     textStyle:{
         fontSize:UserDevice.deviceHeight*.05,
         fontFamily:"bont",
-        color:"#F5F7F8",
+        color:Colors.textColor,
     }
 })
