@@ -1,4 +1,4 @@
-import { FlatList, SafeAreaView, View } from 'react-native'
+import { Button, FlatList, SafeAreaView, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import UButtons from '../../molecules/uButtons/uButtons'
 import UTexts from '../../molecules/uTexts/uTexts'
@@ -15,7 +15,6 @@ import AlertWindow from '../../organisms/alertWindow/alertWindow'
 import { UserDevice } from '../../metarials/userDevice'
 import { Images } from '../../metarials/images'
 import PriceState from '../../organisms/priceState/priceState'
-import { Color2, Colors } from '../../metarials/colors'
 
 const MainPage = () => {
   const [date, setDate] = useState(new Date())
@@ -27,7 +26,6 @@ const MainPage = () => {
   const [controlState, setControlState] = useState(false)
   const [deleteWindow, setDeleteWindow] = useState(false)
   const [priceWindow, setPriceWindow] = useState(false)
-  const [isVisible, setIsVisible] = useState(false)
 
   const { workCount, priceCount, workedDayList, controlArray, priceState } = useSelector((state) => state.user)
   const dispatch = useDispatch()
@@ -123,7 +121,7 @@ const MainPage = () => {
           renderItem={({ item }) => {
             return (
               <View style={{ justifyContent: "center", alignItems: "center" }}>
-                <UList 
+                <UList onPressRemoveIcon={()=>dispatch(deleteListItem(workedDayList.indexOf(item)))}
                 visible={item.state}
                 
                 onPress={()=> {

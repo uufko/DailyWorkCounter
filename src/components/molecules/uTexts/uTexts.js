@@ -6,7 +6,7 @@ import { ULine } from '../../atoms/uLine/uLine'
 
 const UTexts = ({priceText,countText}) => {
   return (
-    <View style={{flex:1, justifyContent:"center", alignItems:"center" , backgroundColor:Colors.headerColor, margin:10}}>
+    <View style={{flex:1, justifyContent:"center", alignItems:"center" , margin:10,}}>
       <UText priceText={`${priceText} TL`}/>
       <ULine/>
       <UText borderBottomWidth={0} priceText={`${countText} Gün`}/>

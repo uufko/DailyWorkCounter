@@ -1,6 +1,7 @@
 import { View, Text, TextInput, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { Style } from './style'
+import { Colors } from '../../metarials/colors'
 
 const PriceState = ({ onPress,value,onChange }) => {
   return (
@@ -13,7 +14,7 @@ const PriceState = ({ onPress,value,onChange }) => {
         textAlign='center'
         keyboardType='numeric'
         placeholder='Değer Giriniz'
-        placeholderTextColor={"white"}
+        placeholderTextColor={Colors.textColor}
         style={Style.textInputStyle} />
       <TouchableOpacity
         onPress={onPress}

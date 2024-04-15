@@ -6,14 +6,14 @@ export const Style = StyleSheet.create({
     viewStyle:{
         height:UserDevice.deviceHeight*.2,
         width:UserDevice.deviceWidht*.8,
-        backgroundColor:Colors.buttonColor, opacity:1, 
+        backgroundColor:Colors.listColor, opacity:1, 
         justifyContent:"center", alignItems:"center",gap:10,
         borderRadius:5
     },
     textStyle:{
         fontFamily:"bont",
         fontSize:UserDevice.deviceHeight*.025, 
-        color:"white"
+        color:Colors.textColor
     },
     touchableStyle:{
         height:UserDevice.deviceHeight*.06,

@@ -10,13 +10,13 @@ export const Style = StyleSheet.create({
         width:UserDevice.deviceWidht*.7,
         marginVertical:2,
         flex:1, 
-        backgroundColor:Colors.buttonColor, 
+        backgroundColor:Colors.listColor, 
         alignItems:"center"
         
     },
     countViewStyle:{
         flex:1,
-        backgroundColor:Colors.buttonColor,
+        backgroundColor:Colors.listColor,
         justifyContent:"center",
         alignItems:"center"
     },
@@ -38,7 +38,7 @@ export const Style = StyleSheet.create({
         fontFamily:"bont"
     },
     lineStyle:{
-        backgroundColor:"white", 
+        backgroundColor:Colors.textColor, 
         height:UserDevice.deviceHeight*.045, 
         width:UserDevice.deviceWidht*.005
     }

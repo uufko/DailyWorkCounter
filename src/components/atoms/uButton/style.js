@@ -4,7 +4,7 @@ import { Colors } from "../../metarials/colors";
 
 export const Style = StyleSheet.create({
     touchableStyle:{
-        backgroundColor:Colors.buttonColor,
+        backgroundColor:Colors.listColor,
         height:UserDevice.deviceHeight*.1,
         width:UserDevice.deviceWidht*.45,
         justifyContent:"center",

@@ -1,10 +1,9 @@
+import { useSelector } from "react-redux"
+
+let themeState = true
+
 export const Colors = {
-    headerColor:"#252e3d",//"#252e3d",
-    buttonColor:"#363c48",//"#363c48",
-    textColor:"white",
-    listColor:"#363c48",//"#363c48",
-    backColor:"#252e3d",//"#252e3d"
-    lightHeaderColor:"#E3F4F4",
-    lightTextColor:"black",
-    lightListColor:"#C4DFDF",
+    headerColor: themeState ? "#E3F4F4" : "#252e3d",
+    textColor: themeState ? "black" : "white",
+    listColor: themeState ? "#C4DFDF" : "#363c48",
 }

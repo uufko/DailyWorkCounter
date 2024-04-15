@@ -4,7 +4,7 @@ import { Colors } from "../../metarials/colors";
 
 export const Style = StyleSheet.create({
     container: {
-        flex: 1, justifyContent: "center", alignItems: "center", backgroundColor:Colors.backColor
+        flex: 1, justifyContent: "center", alignItems: "center", backgroundColor:Colors.headerColor
     },
     textsStyle: {
         flex: 3,
@@ -29,7 +29,7 @@ export const Style = StyleSheet.create({
     absoluteViewStyle:{
         position: "absolute", justifyContent: "center", alignItems: "center",
         height: UserDevice.deviceHeight, width: UserDevice.deviceWidht,
-        backgroundColor:Colors.backColor
+        backgroundColor:Colors.headerColor
     }
 
 

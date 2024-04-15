@@ -9,7 +9,7 @@ export const Style = StyleSheet.create({
         flex:1
     },
     touchableStyle:{
-        backgroundColor:Colors.buttonColor,
+        backgroundColor:Colors.listColor,
         height:UserDevice.deviceHeight*.05,
         width:UserDevice.deviceWidht*.6,
         justifyContent:"center",

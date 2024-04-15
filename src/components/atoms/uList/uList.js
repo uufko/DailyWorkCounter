@@ -4,7 +4,7 @@ import { Style } from './style'
 import UImage from '../uImage/uImage'
 import { Images } from '../../metarials/images'
 
-const UList = ({ dayName, dayNumber, monthName, dailyWorkCount, visible,onPress }) => {
+const UList = ({ dayName, dayNumber, monthName, dailyWorkCount, visible,onPress,onPressRemoveIcon }) => {
   return (
     <View style={Style.viewStyle}>
       <View style={Style.countViewStyle}>
@@ -19,7 +19,7 @@ const UList = ({ dayName, dayNumber, monthName, dailyWorkCount, visible,onPress 
       {visible && <TouchableOpacity  style={{ 
         flex:1, justifyContent:"center", alignItems:"center",
       }}>
-        <UImage state={false} source={Images.removeIcon} height={25} width={25}/>
+        <UImage onPress={onPressRemoveIcon} state={false} source={Images.removeIcon} height={25} width={25}/>
       </TouchableOpacity>}
     </View>
   )

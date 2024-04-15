@@ -9,7 +9,8 @@ const initialState = {
     backColor:"",
     compColor:"",
     textColor:"",
-    themeState:false
+    themeState:false,
+    theme:true,
 }
 
 export const workSlice = createSlice({
@@ -24,6 +25,7 @@ export const workSlice = createSlice({
         },
         setWorkedDayList: (state, action) => {
             state.workedDayList.push(action.payload)
+
         },
         setControlArray: (state, action) => {
             state.controlArray.push(action.payload)
@@ -52,8 +54,16 @@ export const workSlice = createSlice({
         setListState:(state, action) =>{
             state.workedDayList[action.payload].state=!state.workedDayList[action.payload].state
         },
-        deleteListItem:(state, action) =>{
-            console.log(state.workedDayList);
+        deleteListItem:(state, index) =>{
+            state.workCount = state.workCount - state.workedDayList[index.payload].workCount
+            console.log(state.workedDayList[index.payload].workCount);
+            if(state.workedDayList[index.payload].workCount==1){
+                state.priceCount= state.priceCount - state.priceState
+            }else{
+                state.priceCount= state.priceCount - state.priceState/2
+            }
+            state.workedDayList.splice(index.payload,1)
+            state.controlArray.splice(index.payload,1)
         }
     }
 })
