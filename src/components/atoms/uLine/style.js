@@ -4,7 +4,7 @@ import { Colors } from "../../metarials/colors";
 
 export const Style = StyleSheet.create({
     viewStyle:{
-        backgroundColor:Colors.textColor,
+        backgroundColor:Colors.lightTextColor,
         height:UserDevice.deviceHeight*.001,
         width:UserDevice.deviceWidht*.8
     }

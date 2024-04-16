@@ -14,7 +14,7 @@ const PriceState = ({ onPress,value,onChange }) => {
         textAlign='center'
         keyboardType='numeric'
         placeholder='Değer Giriniz'
-        placeholderTextColor={Colors.textColor}
+        placeholderTextColor={Colors.lightTextColor}
         style={Style.textInputStyle} />
       <TouchableOpacity
         onPress={onPress}

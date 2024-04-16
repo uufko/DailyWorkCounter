@@ -13,7 +13,7 @@ export const Style = StyleSheet.create({
     },
     textStyle:{
         alignSelf:"center",
-        color:Colors.textColor,
+        color:Colors.lightTextColor,
         fontSize:UserDevice.deviceHeight*.015, fontFamily:"bont"
     }
 })

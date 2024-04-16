@@ -1,9 +1,10 @@
 import { StyleSheet } from "react-native";
 import { UserDevice } from "../../metarials/userDevice";
+import { Colors } from "../../metarials/colors";
 
 export const Style = StyleSheet.create({
     touchableStyle:{
-        backgroundColor:"#7FC7D9",
+        backgroundColor:Colors.lightBackColor,
         height:UserDevice.deviceHeight*.07,
         width:UserDevice.deviceWidht*.2,
         justifyContent:"center",
@@ -14,7 +15,7 @@ export const Style = StyleSheet.create({
     textStyle:{
         fontSize:13,
         fontFamily:"bont",
-        color:"#F5F7F8",
+        color:Colors.lightTextColor,
         
     }
 })

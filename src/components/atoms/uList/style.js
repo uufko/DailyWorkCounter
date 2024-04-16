@@ -10,36 +10,36 @@ export const Style = StyleSheet.create({
         width:UserDevice.deviceWidht*.7,
         marginVertical:2,
         flex:1, 
-        backgroundColor:Colors.listColor, 
+        backgroundColor:Colors.lightListColor, 
         alignItems:"center"
         
     },
     countViewStyle:{
         flex:1,
-        backgroundColor:Colors.listColor,
+        backgroundColor:Colors.lightListColor,
         justifyContent:"center",
         alignItems:"center"
     },
     datesViewStyle:{
         flex:7,
         flexDirection:"row",
-        backgroundColor:Colors.listColor,
+        backgroundColor:Colors.lightListColor,
         justifyContent:"center",
         alignItems:"center",
     },
     textStyle:{
         fontSize:UserDevice.deviceHeight*.02,
-        color:Colors.textColor,
+        color:Colors.lightTextColor,
         fontFamily:"bont"
     },
     countTextStyle:{
         fontSize:UserDevice.deviceHeight*.018,
-        color:Colors.textColor,
+        color:Colors.lightTextColor,
         fontFamily:"bont"
     },
     lineStyle:{
-        backgroundColor:Colors.textColor, 
-        height:UserDevice.deviceHeight*.045, 
-        width:UserDevice.deviceWidht*.005
+        backgroundColor:Colors.lightTextColor, 
+        height:UserDevice.deviceHeight*.04, 
+        width:UserDevice.deviceWidht*.003
     }
 })

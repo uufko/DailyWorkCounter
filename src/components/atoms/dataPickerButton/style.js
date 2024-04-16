@@ -9,7 +9,7 @@ export const Style = StyleSheet.create({
         flex:1
     },
     touchableStyle:{
-        backgroundColor:Colors.listColor,
+        backgroundColor:Colors.lightListColor,
         height:UserDevice.deviceHeight*.05,
         width:UserDevice.deviceWidht*.6,
         justifyContent:"center",
@@ -25,6 +25,6 @@ export const Style = StyleSheet.create({
     textStyle:{
         fontSize:UserDevice.deviceHeight*.028,
         fontFamily:"bont",
-        color:Colors.textColor,
+        color:Colors.lightTextColor,
     }
 })

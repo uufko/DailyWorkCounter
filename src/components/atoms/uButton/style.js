@@ -4,7 +4,7 @@ import { Colors } from "../../metarials/colors";
 
 export const Style = StyleSheet.create({
     touchableStyle:{
-        backgroundColor:Colors.listColor,
+        backgroundColor:Colors.lightListColor,
         height:UserDevice.deviceHeight*.1,
         width:UserDevice.deviceWidht*.45,
         justifyContent:"center",
@@ -20,6 +20,6 @@ export const Style = StyleSheet.create({
     textStyle:{
         fontSize:UserDevice.deviceHeight*.03,
         fontFamily:"bont",
-        color:Colors.textColor,
+        color:Colors.lightTextColor,
     }
 })
